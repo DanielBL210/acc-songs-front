@@ -1,0 +1,17 @@
+
+<div *ngIf="errorExist" class="alert alert-danger animated fadeIn m-5">
+<h3>Error</h3>
+<p>
+    {{ mensajeError}}
+</p>
+</div>
+<div class="text-center">
+  <form class="form-signin">
+    <img class="mb-4" src="/assets/img/cancion.png" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <label for="user" class="sr-only">Username</label>
+    <input type="text" #user class="form-control" placeholder="username" required="true">
+    <br>
+    <button (click)="login(user.value)" class="btn btn-lg btn-dark btn-block" >Sign in</button>
+  </form>
+</div>

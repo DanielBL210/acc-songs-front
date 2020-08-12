@@ -1,0 +1,45 @@
+<app-loading *ngIf="loading"></app-loading>
+<div class="text-center" *ngIf="!loading">
+    <input type="image" (click)="createSong()" height="40" name="botondeenvio" src="/assets/img/create.png">
+    <input type="image" [routerLink]="['/login']" height="40" name="botondeenvio" src="/assets/img/exit.png">
+</div>
+<div class="row m-5" *ngIf="!loading" >    
+    <div class="col">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Artist</th>
+                <th>Genre</th>
+                <th>Album</th>
+                <th>User</th>
+                <th>Create Date</th>
+                <th>Last Update</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let song of listSongs" >                
+                <td>{{song.title}}</td>
+                <td>
+                    <img [src]="song.image | noimage"  height="80" class="img-thumb">
+                </td>
+                <td>{{song.artist}}</td>
+                <td>{{song.genre}}</td>
+                <td>{{song.album}}</td>                
+                <td>{{song.user_song}}</td>
+                <td>{{song.create_at | date:'medium'}}</td>
+                <td>{{song.update_at | date:'medium'}}</td>
+                <td>                    
+                    <input type="image" (click)="viewSong(song.id)" height="40" name="botondeenvio" src="/assets/img/edit.png">                    
+                </td> 
+                <td>
+                    <input type="image" height="40" name="botondeenvio" src="/assets/img/delete.png">
+                </td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+</div>
