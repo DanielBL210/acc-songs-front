@@ -45,4 +45,10 @@ export class ListSongsComponent implements OnInit {
     this.router.navigate(['/create',this.user]);
   }
 
+  deleteSong(id: number) {
+    this.songsService.deleteById(id).subscribe((deleteDate)=>{
+      this.router.navigate(['/list', this.user]);
+    })
+  }
+
 }

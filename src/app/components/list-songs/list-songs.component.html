@@ -33,10 +33,10 @@
                 <td>{{song.create_at | date:'medium'}}</td>
                 <td>{{song.update_at | date:'medium'}}</td>
                 <td>                    
-                    <input type="image" (click)="viewSong(song.id)" height="40" name="botondeenvio" src="/assets/img/edit.png">                    
+                    <input type="image" (click)="viewSong(song.id)" height="40"  src="/assets/img/edit.png">                    
                 </td> 
                 <td>
-                    <input type="image" height="40" name="botondeenvio" src="/assets/img/delete.png">
+                    <input type="image" (click)="deleteSong(song.id)" height="40" src="/assets/img/delete.png">
                 </td>
             </tr>
         </tbody>
