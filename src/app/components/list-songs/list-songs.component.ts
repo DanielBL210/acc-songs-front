@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SongsService } from 'src/app/services/songs.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-list-songs',
@@ -15,7 +16,8 @@ export class ListSongsComponent implements OnInit {
 
   constructor(private activeRouter: ActivatedRoute,
     private songsService: SongsService,
-    private router: Router) {
+    private router: Router,
+    private location: Location) {
 
     this.loading = true;
     this.activeRouter.params.subscribe(params => {
@@ -47,7 +49,7 @@ export class ListSongsComponent implements OnInit {
 
   deleteSong(id: number) {
     this.songsService.deleteById(id).subscribe((deleteDate)=>{
-      this.router.navigate(['/list', this.user]);
+      location.reload();
     })
   }
 
